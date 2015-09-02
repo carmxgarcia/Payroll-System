@@ -3,8 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	
-	<persistence-unit name="psPu" transaction-type="RESOURCE_LOCAL">
-		<!-- Complete this... -->
+	<persistence-unit name="payroll">
+		<properties>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="javax.persistence.transactionType" value="RESOURCE_LOCAL" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/payroll" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="root" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+		</properties>
 	</persistence-unit>
 	
 </persistence>
