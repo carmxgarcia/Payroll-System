@@ -16,37 +16,37 @@ public class User {
 	@GeneratedValue
 	private int id;
 
-	@Column(name="firstname_")
+	@Column(name="FIRST_NAME")
 	private String firstName;
 	
-	@Column(name="lastname")
+	@Column(name="LAST_NAME")
 	private String lastName;
 
-	@Column(name="middlename")
+	@Column(name="MIDDLE_NAME")
 	private String middleName;
 	
-	@Column(name="age")
+	@Column(name="AGE")
 	private int age;
 	
-	@Column(name="sex")
+	@Column(name="SEX")
 	private String sex;
 	
-	@Column(name="dateofbirth")
+	@Column(name="DATE_OF_BIRTH")
 	private Date dateOfBirth;
 	
-	@Column(name="maritalstatus")
+	@Column(name="MARITAL_STATUS")
 	private String maritalStatus;
 	
-	@Column(name="numberofdependents")
+	@Column(name="NUMBER_OF_DEPENDENTS")
 	private int numberOfDependents;
 	
-	@Column(name="basicsalary")
+	@Column(name="BASIC_SALARY")
 	private double basicSalary;
 	
-	@Column(name="othertaxable")
+	@Column(name="OTHER_TAXABLE")
 	private double otherTaxable;
 	
-	@Column(name="nontaxable")
+	@Column(name="NON_TAXABLE")
 	private double nonTaxable;
 
 	public int getId() {

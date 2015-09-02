@@ -17,41 +17,41 @@ public class UserCutOff {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="cutOff_id")
+	@JoinColumn(name="CUT_OFF_ID")
 	private CutOff cutOff;
 	
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="USER_ID")
 	private User user;
 	
-	@Column
+	@Column(name="BASIC_SALARY")
 	private double basicSalary;
 	
-	@Column
+	@Column(name="NUMBER_OF_DEPENDENTS")
 	private int numberOfDependents;
 	
-	@Column
+	@Column(name="OTHER_TAXABLE")
 	private double otherTaxable;
 	
-	@Column
+	@Column(name="NON_TAXABLE")
 	private double nonTaxable;
 	
-	@Column
+	@Column(name="ABSENCE")
 	private int absence;
 	
-	@Column
+	@Column(name="OVERTIME")
 	private float overtime;
 	
-	@Column
+	@Column(name="TARDINESS")
 	private float tardiness;
 	
-	@Column
+	@Column(name="SSS")
 	private double sss;
 	
-	@Column
+	@Column(name="PAG_IBIG")
 	private double pagIbig;
 	
-	@Column
+	@Column(name="PHILHEALTH")
 	private double philhealth;
 
 	public int getId() {
