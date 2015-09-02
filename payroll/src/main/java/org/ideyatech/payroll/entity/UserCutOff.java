@@ -24,18 +24,6 @@ public class UserCutOff {
 	@JoinColumn(name="USER_ID")
 	private User user;
 	
-	@Column(name="BASIC_SALARY")
-	private double basicSalary;
-	
-	@Column(name="NUMBER_OF_DEPENDENTS")
-	private int numberOfDependents;
-	
-	@Column(name="OTHER_TAXABLE")
-	private double otherTaxable;
-	
-	@Column(name="NON_TAXABLE")
-	private double nonTaxable;
-	
 	@Column(name="ABSENCE")
 	private int absence;
 	
@@ -60,38 +48,6 @@ public class UserCutOff {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public double getBasicSalary() {
-		return basicSalary;
-	}
-
-	public void setBasicSalary(double basicSalary) {
-		this.basicSalary = basicSalary;
-	}
-
-	public int getNumberOfDependents() {
-		return numberOfDependents;
-	}
-
-	public void setNumberOfDependents(int numberOfDependents) {
-		this.numberOfDependents = numberOfDependents;
-	}
-
-	public double getOtherTaxable() {
-		return otherTaxable;
-	}
-
-	public void setOtherTaxable(double otherTaxable) {
-		this.otherTaxable = otherTaxable;
-	}
-
-	public double getNonTaxable() {
-		return nonTaxable;
-	}
-
-	public void setNonTaxable(double nonTaxable) {
-		this.nonTaxable = nonTaxable;
 	}
 
 	public int getAbsence() {
