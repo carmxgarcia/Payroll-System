@@ -6,48 +6,47 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.ideyatech.payroll.entity.User;
+import org.ideyatech.payroll.entity.UserCutOff;
 import org.ideyatech.payroll.util.PersistenceUtil;
 
-public class UserDao {
+public class UserCutOffDao {
 	
 	EntityManager em = PersistenceUtil.getEntityManager();
 
-	public void add(User entity) {
-		
-		//Test
+	public void add(UserCutOff entity) {
 		
 		em.getTransaction().begin();
 		em.persist(entity);
 		em.getTransaction().commit();
 	}
 
-	public void update(User entity) {
+	public void update(UserCutOff entity) {
 		em.getTransaction().begin();
 		em.getTransaction().commit();
 	}
 
-	public User findById(int id) {
+	public UserCutOff findById(int id) {
 		em.getTransaction().begin();
-		User user = (User) em.find(User.class, id);
+		UserCutOff usercutoff = (UserCutOff) em.find(UserCutOff.class, id);
 		em.getTransaction().commit();
-		return user; 
+		return usercutoff; 
 	}
 
 	public void delete(int id) {
 		em.getTransaction().begin();
-		User user = (User) em.find(User.class, id);
-		if (user != null) {
-			em.remove(user); 
+		UserCutOff usercutoff = (UserCutOff) em.find(UserCutOff.class, id);
+		if (usercutoff != null) {
+			em.remove(usercutoff); 
 		}
 		em.getTransaction().commit();
 	}
 
-	public List<User> findAll() {
+	public List<UserCutOff> findAll() {
 		em.getTransaction().begin();
-		Query query = em.createQuery("select u from User u");
-		List<User> users = query.getResultList();
+		Query query = em.createQuery("select u from UserCutOff u");
+		List<UserCutOff> usercutoff = query.getResultList();
 		em.getTransaction().commit();
-		return users;
+		return usercutoff;
 	}
 	
 }
