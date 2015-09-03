@@ -5,47 +5,47 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import org.ideyatech.payroll.entity.UserCutOff;
+import org.ideyatech.payroll.entity.CutOff;
 import org.ideyatech.payroll.util.PersistenceUtil;
 
-public class UserCutOffDao {
+public class CutOffDao {
 	
 	EntityManager em = PersistenceUtil.getEntityManager();
 
-	public void add(UserCutOff entity) {
+	public void add(CutOff entity) {
 		
 		em.getTransaction().begin();
 		em.persist(entity);
 		em.getTransaction().commit();
 	}
 
-	public void update(UserCutOff entity) {
+	public void update(CutOff entity) {
 		em.getTransaction().begin();
 		em.getTransaction().commit();
 	}
 
-	public UserCutOff findById(int id) {
+	public CutOff findById(int id) {
 		em.getTransaction().begin();
-		UserCutOff usercutoff = (UserCutOff) em.find(UserCutOff.class, id);
+		CutOff cutOff = (CutOff) em.find(CutOff.class, id);
 		em.getTransaction().commit();
-		return usercutoff; 
+		return cutOff; 
 	}
 
 	public void delete(int id) {
 		em.getTransaction().begin();
-		UserCutOff usercutoff = (UserCutOff) em.find(UserCutOff.class, id);
-		if (usercutoff != null) {
-			em.remove(usercutoff); 
+		CutOff cutOff = (CutOff) em.find(CutOff.class, id);
+		if (cutOff != null) {
+			em.remove(cutOff); 
 		}
 		em.getTransaction().commit();
 	}
 
-	public List<UserCutOff> findAll() {
+	public List<CutOff> findAll() {
 		em.getTransaction().begin();
-		Query query = em.createQuery("select u from UserCutOff u");
-		List<UserCutOff> usercutoff = query.getResultList();
+		Query query = em.createQuery("select u from CutOff u");
+		List<CutOff> cutOffs = query.getResultList();
 		em.getTransaction().commit();
-		return usercutoff;
+		return cutOffs;
 	}
 	
 }
