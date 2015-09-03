@@ -65,6 +65,7 @@
 								
 								if(u.getMiddleName()==null) u.setMiddleName("");
 							%>
+							
 							<tr>
 								<td class="td-id"><% out.println(u.getId()); %></td>
 								<td><% out.println(u.getLastName()+", "+u.getFirstName()+" "+u.getMiddleName()); %></td>
@@ -75,8 +76,9 @@
 								<td>Php <% out.println(u.getBasicSalary()); %></td>
 								<td>Php <% out.println(u.getOtherTaxable()); %></td>
 								<td>Php <% out.println(u.getNonTaxable()); %></td>
-								<td><button type="button" class="btn btn-warning btn-xs btn-block">Edit</button></td>
-			    				<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
+								<td><a href="/editView?id=<%out.println(u.getId());%>" class="btn btn-warning btn-xs btn-block">Edit</a></td>
+			    				<td><a href="/delete?id=<%out.println(u.getId());%>" class="btn btn-danger btn-xs btn-block">Delete</a></td>
+								
 							</tr>
 						<%	}
 						
