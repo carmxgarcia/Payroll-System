@@ -14,6 +14,8 @@ public class UserDao {
 
 	public void add(User entity) {
 		
+		//Test
+		
 		em.getTransaction().begin();
 		em.persist(entity);
 		em.getTransaction().commit();
