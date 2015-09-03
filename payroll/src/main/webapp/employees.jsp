@@ -24,9 +24,9 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Home</a></li>
-					<li class="active"><a href="#">Employees</a></li>
-					<li><a href="#">Cutoffs</a></li>
+					<li><a href="/index.jsp">Home</a></li>
+					<li class="active"><a href="/user">Employees</a></li>
+					<li><a href="/cutoff">Cutoffs</a></li>
 				</ul>
 			</div>
 		</div>
@@ -43,7 +43,7 @@
 			    	<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Employee</a>
 			    </div>
 			    <hr/>
-			    <table class="table table-striped table-bordered table-condensed">
+			    <table class="table table-striped table-bordered table-condensed table-hover">
 			    	<thead>
 			    		<tr>
 			    			<th class="col-id">id</th>
