@@ -2,18 +2,21 @@ package org.ideyatech.payroll.controller;
 
 
 import java.io.IOException;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.ideyatech.payroll.dao.UserDao;
 import org.ideyatech.payroll.entity.User;
-import org.ideyatech.payroll.util.PersistenceUtil;
 
 @WebServlet("/add")
 public class AddUserController extends HttpServlet {
@@ -33,12 +36,12 @@ public class AddUserController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		EntityManager em = PersistenceUtil.getEntityManager();
+		/*EntityManager em = PersistenceUtil.getEntityManager();
 		Query query = em.createQuery("select u from User u");
 		List<User> users = query.getResultList();
 		for(User user: users){
 			System.out.println(user.getFirstName());
-		}
+		}*/
 		
 		/*
 		System.out.println("Books = " + users);*/
@@ -50,6 +53,35 @@ public class AddUserController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		UserDao userDao = new UserDao();
+		User user = new User();
+		
+		DateFormat format = new SimpleDateFormat("yyyy-dd-MM", Locale.ENGLISH);
+		Date date = null;
+		try {
+			date = (Date) format.parse(request.getParameter("inputBirthDay"));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		user.setFirstName(request.getParameter("inputFirstName"));
+		user.setLastName(request.getParameter("inputLastName"));
+		user.setMiddleName(request.getParameter("inputMiddleName"));
+		user.setSex(request.getParameter("inputGender"));
+		user.setDateOfBirth(date);
+		user.setAge(Integer.parseInt(request.getParameter("inputAge")));
+		user.setBasicSalary(Double.parseDouble(request.getParameter("inputBasicSalary")));
+		user.setMaritalStatus(request.getParameter("inputMarital"));
+		user.setNumberOfDependents(Integer.parseInt(request.getParameter("inputDependents")));
+		user.setOtherTaxable(Double.parseDouble(request.getParameter("inputTaxable")));
+		user.setNonTaxable(Double.parseDouble(request.getParameter("inputNonTaxable")));
+		
+		userDao.add(user);
+		
+		response.sendRedirect("/user");
+		
+		return;
 	}
 
 }

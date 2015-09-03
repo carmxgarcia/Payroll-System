@@ -33,11 +33,13 @@ public class MainController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserDao userDao = new UserDao();
+
 		List<User> users = userDao.findAll();
 		
 		for(User user: users) {
 			System.out.println(user.getFirstName());
 		}
+
 		return;
 		
 	}
