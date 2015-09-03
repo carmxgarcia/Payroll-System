@@ -45,7 +45,7 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="panel-title"><h2>Add Cutoffs(DATE)</h2></div>
+				<div class="panel-title"><h2>Add Cutoff (April 20, 1993 - September 3, 2015)</h2></div>
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">
