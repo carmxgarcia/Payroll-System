@@ -41,6 +41,66 @@ public class UserCutOff {
 	
 	@Column(name="philhealth")
 	private double philhealth;
+	
+	@Column(name="numberofdependents")
+	private double numberofdependents;
+	
+	@Column(name="basicsalary")
+	private double basicsalary;
+	
+	@Column(name="othertaxable")
+	private double othertaxable;
+	
+	@Column(name="nontaxable")
+	private double nontaxable;
+	
+	public CutOff getCutOff() {
+		return cutOff;
+	}
+
+	public void setCutOff(CutOff cutOff) {
+		this.cutOff = cutOff;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public double getNumberofdependents() {
+		return numberofdependents;
+	}
+
+	public void setNumberofdependents(double numberofdependents) {
+		this.numberofdependents = numberofdependents;
+	}
+
+	public double getBasicsalary() {
+		return basicsalary;
+	}
+
+	public void setBasicsalary(double basicsalary) {
+		this.basicsalary = basicsalary;
+	}
+
+	public double getOthertaxable() {
+		return othertaxable;
+	}
+
+	public void setOthertaxable(double othertaxable) {
+		this.othertaxable = othertaxable;
+	}
+
+	public double getNontaxable() {
+		return nontaxable;
+	}
+
+	public void setNontaxable(double nontaxable) {
+		this.nontaxable = nontaxable;
+	}
 
 	public int getId() {
 		return id;
