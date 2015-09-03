@@ -40,7 +40,7 @@
 			</div>
 			<div class="panel-body">
 			    <div class="col-md-2 col-md-offset-10">
-			    	<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Employee</a>
+			    	<a href="addUser.jsp" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Employee</a>
 			    </div>
 			    <hr/>
 			    <table class="table table-striped table-bordered table-condensed">
@@ -59,19 +59,6 @@
 			    		</tr>
 			    	</thead>
 			    	<tbody>
-			    		<!-- <tr>
-			    			<td class="td-id">1</td>
-			    			<td>Barcinal, Valen J.</td>
-			    			<td>22</td>
-			    			<td>Male</td>
-			    			<td>04/20/1993</td>
-			    			<td>Single</td>
-			    			<td>20000</td>
-			    			<td>0</td>
-			    			<td>5000</td>
-			    			<td><button type="button" class="btn btn-warning btn-xs btn-block">Edit</button></td>
-			    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
-			    		</tr> -->
 			    		
 			    		<% List<User> users = (List<User>)request.getAttribute("users"); 
 							for(User u:users){
