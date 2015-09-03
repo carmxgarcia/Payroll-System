@@ -13,6 +13,8 @@
 <link href="css/style.css" rel="stylesheet" media="screen">
 </head>
 <body>
+
+	<!-- NavBar -->
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -21,15 +23,31 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#">Home</a></li>
-					<li class="active"><a href="addUser.jsp">Add Employees</a></li>
+					<li class="active"><a href="#">Employees</a></li>
+					<li><a href="#">Cutoffs</a></li>
 				</ul>
 			</div>
-			<!--/.nav-collapse -->
 		</div>
 	</div>
+	<!-- /NavBar -->
+	
+	<!-- BreadCrumb -->
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="#">Employee</a></li>
+		  	<li class="active">Add Employee</li>
+		</ol>
+	</div>
+	<!-- /BreadCrumb -->
+	
 
-	<div class="container" id="bd">
-		<form action="/user/add">
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title"><h2>Add Employee</h2></div>
+			</div>
+			<div class="panel-body">
+			    <form action="/user/add">
 			<div class="form-horizontal">
 				<hr/>
 				<div class="form-group">
@@ -112,6 +130,9 @@
 				<button type="submit" class="btn btn-default btn-primary btn-lg col-md-2 col-md-offset-10">Register Employee</button>
 			</div>
 		</form>
+			</div>
+		</div>
+		
 	</div>
 
 
