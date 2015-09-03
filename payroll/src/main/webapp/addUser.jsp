@@ -47,7 +47,7 @@
 				<div class="panel-title"><h2>Add Employee</h2></div>
 			</div>
 			<div class="panel-body">
-			    <form method="post" action="/user/add">
+			    <form method="post" action="/add">
 					<div class="form-horizontal">
 						<div class="form-group">
 							<div class="form-inline">

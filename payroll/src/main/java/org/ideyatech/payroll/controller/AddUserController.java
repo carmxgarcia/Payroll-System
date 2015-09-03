@@ -2,15 +2,13 @@ package org.ideyatech.payroll.controller;
 
 
 import java.io.IOException;
-import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
+import java.util.Date;
 import java.util.Locale;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,9 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.ideyatech.payroll.dao.UserDao;
 import org.ideyatech.payroll.entity.User;
-import org.ideyatech.payroll.util.PersistenceUtil;
 
-@WebServlet("/user/add")
+@WebServlet("/add")
 public class AddUserController extends HttpServlet {
    
 	private static final long serialVersionUID = 6940077307333555537L;
@@ -59,10 +56,10 @@ public class AddUserController extends HttpServlet {
 		UserDao userDao = new UserDao();
 		User user = new User();
 		
-		DateFormat format = new SimpleDateFormat("MMMM dd, yyyy", Locale.ENGLISH);
+		DateFormat format = new SimpleDateFormat("yyyy-dd-MM", Locale.ENGLISH);
 		Date date = null;
 		try {
-			date = (Date) format.parse(request.getParameter("inputBirthday"));
+			date = (Date) format.parse(request.getParameter("inputBirthDay"));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -80,7 +77,11 @@ public class AddUserController extends HttpServlet {
 		user.setOtherTaxable(Double.parseDouble(request.getParameter("inputTaxable")));
 		user.setNonTaxable(Double.parseDouble(request.getParameter("inputNonTaxable")));
 		
+		userDao.add(user);
 		
+		response.sendRedirect("/user");
+		
+		return;
 	}
 
 }
