@@ -85,9 +85,9 @@
 								<td><% out.println(u.getSex()); %></td>
 								<td><% out.println(u.getDateOfBirth()); %></td>
 								<td><% out.println(u.getMaritalStatus()); %></td>
-								<td><% out.println(u.getBasicSalary()); %></td>
-								<td><% out.println(u.getOtherTaxable()); %></td>
-								<td><% out.println(u.getNonTaxable()); %></td>
+								<td>Php <% out.println(u.getBasicSalary()); %></td>
+								<td>Php <% out.println(u.getOtherTaxable()); %></td>
+								<td>Php <% out.println(u.getNonTaxable()); %></td>
 								<td><button type="button" class="btn btn-warning btn-xs btn-block">Edit</button></td>
 			    				<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
 							</tr>
