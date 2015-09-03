@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2015 at 01:09 PM
+-- Generation Time: Sep 03, 2015 at 01:11 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,57 @@ SET time_zone = "+00:00";
 --
 -- Database: `payroll`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cutoff`
+--
+
+CREATE TABLE IF NOT EXISTS `cutoff` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `startdate` date NOT NULL,
+  `enddate` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `cutoff`
+--
+
+INSERT INTO `cutoff` (`id`, `startdate`, `enddate`) VALUES
+(3, '2015-01-09', '2016-03-09'),
+(4, '2016-04-09', '2017-06-09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `middlename` varchar(100) DEFAULT NULL,
+  `age` int(11) NOT NULL,
+  `sex` varchar(100) NOT NULL,
+  `dateofbirth` date NOT NULL,
+  `maritalstatus` varchar(100) NOT NULL,
+  `numberofdependents` int(11) NOT NULL,
+  `basicsalary` double NOT NULL,
+  `othertaxable` double NOT NULL,
+  `nontaxable` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `middlename`, `age`, `sex`, `dateofbirth`, `maritalstatus`, `numberofdependents`, `basicsalary`, `othertaxable`, `nontaxable`) VALUES
+(2, 'Valen', 'Barcinal', '', 22, 'male', '2015-09-01', 'single', 1, 20000, 0, 5000),
+(3, 'Nick', 'Tunac', '', 18, 'Male', '2015-01-09', 'Single', 0, 1111, 2222, 444);
 
 -- --------------------------------------------------------
 
