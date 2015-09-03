@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2015 at 03:58 AM
+-- Generation Time: Sep 03, 2015 at 01:09 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -23,48 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cutoff`
---
-
-CREATE TABLE IF NOT EXISTS `cutoff` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `startdate` date NOT NULL,
-  `enddate` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(100) NOT NULL,
-  `lastname` varchar(100) NOT NULL,
-  `middlename` varchar(100) DEFAULT NULL,
-  `age` int(11) NOT NULL,
-  `sex` varchar(100) NOT NULL,
-  `dateofbirth` date NOT NULL,
-  `maritalstatus` varchar(100) NOT NULL,
-  `numberofdependents` int(11) NOT NULL,
-  `basicsalary` double NOT NULL,
-  `othertaxable` double NOT NULL,
-  `nontaxable` double NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `firstname`, `lastname`, `middlename`, `age`, `sex`, `dateofbirth`, `maritalstatus`, `numberofdependents`, `basicsalary`, `othertaxable`, `nontaxable`) VALUES
-(1, 'carmela', 'garcia', NULL, 21, 'female', '2015-09-06', 'single', 0, 20000, 0, 5000);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `usercutoff`
 --
 
@@ -78,8 +36,23 @@ CREATE TABLE IF NOT EXISTS `usercutoff` (
   `sss` double NOT NULL,
   `pagibig` double NOT NULL,
   `philhealth` double NOT NULL,
+  `basicsalary` double NOT NULL,
+  `othertaxable` double NOT NULL,
+  `nontaxable` double NOT NULL,
+  `numberofdependents` int(11) NOT NULL,
+  `totalsalary` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `usercutoff`
+--
+
+INSERT INTO `usercutoff` (`id`, `cutoffid`, `userid`, `absence`, `overtime`, `tardiness`, `sss`, `pagibig`, `philhealth`, `basicsalary`, `othertaxable`, `nontaxable`, `numberofdependents`, `totalsalary`) VALUES
+(3, 3, 2, 0, 0, 0, 0, 0, 0, 20000, 0, 5000, 1, 0),
+(4, 3, 3, 0, 0, 0, 0, 0, 0, 1111, 2222, 444, 0, 0),
+(5, 4, 2, 0, 0, 0, 0, 0, 0, 20000, 0, 5000, 1, 0),
+(6, 4, 3, 0, 0, 0, 0, 0, 0, 1111, 2222, 444, 0, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

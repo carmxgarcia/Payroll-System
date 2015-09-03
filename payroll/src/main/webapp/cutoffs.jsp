@@ -1,4 +1,4 @@
-<%@page import="org.ideyatech.payroll.entity.User"%>
+<%@page import="org.ideyatech.payroll.entity.CutOff"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -32,7 +32,7 @@
 		</div>
 	</div>
 	<!-- /NavBar -->
-	
+
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -78,13 +78,20 @@
 			    		</tr>
 			    	</thead>
 			    	<tbody>
+			    	<% List<CutOff> cutoffs = (List<CutOff>)request.getAttribute("cutoffs"); 
+					for(CutOff c:cutoffs){
+						
+					%>
+					
 			    		<tr>
-			    			<td class="td-id">1</td>
-			    			<td>04/20/1993</td>
-			    			<td>09/03/2015</td>
+			    			<td class="td-id"><% out.println(c.getId()); %></td>
+			    			<td><% out.println(c.getStart_date()); %></td>
+			    			<td><% out.println(c.getEnd_date()); %></td>
 			    			<td><button type="button" class="btn btn-warning btn-xs btn-block">View</button></td>
 			    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
 			    		</tr>
+			    	
+			    	<% } %>
 			    	</tbody>
 			    </table>
 			</div>

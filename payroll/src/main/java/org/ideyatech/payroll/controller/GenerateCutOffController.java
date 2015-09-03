@@ -54,7 +54,7 @@ public class GenerateCutOffController extends HttpServlet {
 		
 		CutOff cutoff = new CutOff();
 		List<User> users = userdao.findAll();
-		UserCutOff usercutoff = new UserCutOff();
+		
 		
 		DateFormat format = new SimpleDateFormat("yyyy-dd-MM", Locale.ENGLISH);
 		Date start_date = null,end_date=null;
@@ -71,6 +71,7 @@ public class GenerateCutOffController extends HttpServlet {
 		cutoffdao.add(cutoff);
 		
 		for(User u: users){
+			UserCutOff usercutoff = new UserCutOff();
 			usercutoff.setCutOff(cutoff);
 			usercutoff.setUser(u);
 			usercutoff.setSss(0);
