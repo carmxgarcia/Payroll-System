@@ -1,3 +1,5 @@
+<%@page import="org.ideyatech.payroll.entity.User"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -57,7 +59,7 @@
 			    		</tr>
 			    	</thead>
 			    	<tbody>
-			    		<tr>
+			    		<!-- <tr>
 			    			<td class="td-id">1</td>
 			    			<td>Barcinal, Valen J.</td>
 			    			<td>22</td>
@@ -69,7 +71,30 @@
 			    			<td>5000</td>
 			    			<td><button type="button" class="btn btn-warning btn-xs btn-block">Edit</button></td>
 			    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
-			    		</tr>
+			    		</tr> -->
+			    		
+			    		<% List<User> users = (List<User>)request.getAttribute("users"); 
+							for(User u:users){
+								
+								if(u.getMiddleName()==null) u.setMiddleName("");
+							%>
+							<tr>
+								<td class="td-id"><% out.println(u.getId()); %></td>
+								<td><% out.println(u.getLastName()+", "+u.getFirstName()+" "+u.getMiddleName()); %></td>
+								<td><% out.println(u.getAge()); %></td>
+								<td><% out.println(u.getSex()); %></td>
+								<td><% out.println(u.getDateOfBirth()); %></td>
+								<td><% out.println(u.getMaritalStatus()); %></td>
+								<td><% out.println(u.getBasicSalary()); %></td>
+								<td><% out.println(u.getOtherTaxable()); %></td>
+								<td><% out.println(u.getNonTaxable()); %></td>
+								<td><button type="button" class="btn btn-warning btn-xs btn-block">Edit</button></td>
+			    				<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
+							</tr>
+						<%	}
+						
+						%>
+			    		
 			    	</tbody>
 			    </table>
 			</div>
