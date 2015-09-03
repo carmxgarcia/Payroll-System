@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Payroll System - Employees</title>
+<title>Payroll System - Cutoffs</title>
 
 <!-- Bootstrap -->
 <!-- Latest compiled and minified CSS -->
@@ -25,8 +25,8 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="/index.jsp">Home</a></li>
-					<li class="active"><a href="/user">Employees</a></li>
-					<li><a href="/cutoff">Cutoffs</a></li>
+					<li><a href="/user">Employees</a></li>
+					<li class="active"><a href="/cutoff">Cutoffs</a></li>
 				</ul>
 			</div>
 		</div>
@@ -36,54 +36,53 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="panel-title"><h2>Employees</h2></div>
+				<div class="panel-title"><h2>Cutoffs</h2></div>
 			</div>
 			<div class="panel-body">
-			    <div class="col-md-2 col-md-offset-10">
-			    	<a href="addUser.jsp" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Employee</a>
-			    </div>
-			    <hr/>
+				<div class="col-sm-4 col-sm-offset-4">
+			    	<div class="form-horizontal">
+			    		<div class="form-group">
+			    			<div class="col-md-6 col-md-offset-3">
+			    				<h3>Create Cutoff</h3>
+			    			</div>
+			    		</div>
+						<div class="form-group">
+							<div class="form-inline">
+								<label for="inputStartDate" class="col-sm-4 control-label">Start Date</label>
+								<input type="date" class="form-control" name="inputStartDate" id="inputStartDate">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-inline">
+								<label for="inputEndDate" class="col-sm-4 control-label">End Date</label>
+								<input type="date" class="form-control" name="inputEndDate" id="inputEndDate">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-4 col-md-offset-4">
+								<input type="submit" class="btn btn-primary btn-block" value="Generate">
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr/>
 			    <table class="table table-striped table-bordered table-condensed table-hover">
 			    	<thead>
 			    		<tr>
 			    			<th class="col-id">id</th>
-			    			<th>Name</th>
-			    			<th>Age</th>
-			    			<th>Sex</th>
-			    			<th>Date of Birth</th>
-			    			<th>Marital Status</th>
-			    			<th>Basic Salary</th>
-			    			<th>Taxable</th>
-			    			<th>Non-Taxable</th>
+			    			<th>Start Date</th>
+			    			<th>End Date</th>
 			    			<th colspan="2"></th>
 			    		</tr>
 			    	</thead>
 			    	<tbody>
-			    		
-			    		<% List<User> users = (List<User>)request.getAttribute("users"); 
-							for(User u:users){
-								
-								if(u.getMiddleName()==null) u.setMiddleName("");
-							%>
-							
-							<tr>
-								<td class="td-id"><% out.println(u.getId()); %></td>
-								<td><% out.println(u.getLastName()+", "+u.getFirstName()+" "+u.getMiddleName()); %></td>
-								<td><% out.println(u.getAge()); %></td>
-								<td><% out.println(u.getSex()); %></td>
-								<td><% out.println(u.getDateOfBirth()); %></td>
-								<td><% out.println(u.getMaritalStatus()); %></td>
-								<td>Php <% out.println(u.getBasicSalary()); %></td>
-								<td>Php <% out.println(u.getOtherTaxable()); %></td>
-								<td>Php <% out.println(u.getNonTaxable()); %></td>
-								<td><a href="/editView?id=<%out.println(u.getId());%>" class="btn btn-warning btn-xs btn-block">Edit</a></td>
-			    				<td><a href="/delete?id=<%out.println(u.getId());%>" class="btn btn-danger btn-xs btn-block">Delete</a></td>
-								
-							</tr>
-						<%	}
-						
-						%>
-			    		
+			    		<tr>
+			    			<td class="td-id">1</td>
+			    			<td>04/20/1993</td>
+			    			<td>09/03/2015</td>
+			    			<td><button type="button" class="btn btn-warning btn-xs btn-block">View</button></td>
+			    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
+			    		</tr>
 			    	</tbody>
 			    </table>
 			</div>
