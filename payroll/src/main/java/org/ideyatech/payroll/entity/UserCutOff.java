@@ -17,29 +17,29 @@ public class UserCutOff {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="CUT_OFF_ID")
+	@JoinColumn(name="cutoffid")
 	private CutOff cutOff;
 	
 	@ManyToOne
-	@JoinColumn(name="USER_ID")
+	@JoinColumn(name="userid")
 	private User user;
 	
-	@Column(name="ABSENCE")
+	@Column(name="absence")
 	private int absence;
 	
-	@Column(name="OVERTIME")
+	@Column(name="overtime")
 	private float overtime;
 	
-	@Column(name="TARDINESS")
+	@Column(name="tardiness")
 	private float tardiness;
 	
-	@Column(name="SSS")
+	@Column(name="sss")
 	private double sss;
 	
-	@Column(name="PAG_IBIG")
+	@Column(name="pagibig")
 	private double pagIbig;
 	
-	@Column(name="PHILHEALTH")
+	@Column(name="philhealth")
 	private double philhealth;
 
 	public int getId() {

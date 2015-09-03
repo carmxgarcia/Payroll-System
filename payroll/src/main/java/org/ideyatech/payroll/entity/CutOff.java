@@ -19,11 +19,11 @@ public class CutOff {
 	private int id;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name="START_DATE")
+	@Column(name="startdate")
 	private Date start_date;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name="END_DATE")
+	@Column(name="enddate")
 	private Date end_date;
 
 	public int getId() {
