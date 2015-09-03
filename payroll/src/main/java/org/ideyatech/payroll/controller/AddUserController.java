@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.ideyatech.payroll.entity.User;
 import org.ideyatech.payroll.util.PersistenceUtil;
 
-@WebServlet("/user")
+@WebServlet("/add")
 public class AddUserController extends HttpServlet {
    
 	private static final long serialVersionUID = 6940077307333555537L;
