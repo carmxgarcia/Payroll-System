@@ -39,6 +39,7 @@
 				<div class="panel-title"><h2>Cutoffs</h2></div>
 			</div>
 			<div class="panel-body">
+				<form method="post" action="/generate">
 				<div class="col-sm-4 col-sm-offset-4">
 			    	<div class="form-horizontal">
 			    		<div class="form-group">
@@ -65,6 +66,7 @@
 						</div>
 					</div>
 				</div>
+				</form>
 				<hr/>
 			    <table class="table table-striped table-bordered table-condensed table-hover">
 			    	<thead>
