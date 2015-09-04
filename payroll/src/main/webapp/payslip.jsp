@@ -68,7 +68,7 @@
 									<b>MARITAL STATUS</b>
 								</td>
 								<td>
-									Barcinal, Valen J.<br/>
+									${userCutOff.user.firstName} ${userCutOff.user.lastName}<br/>
 									2015-0001<br/>
 									21<br/>
 									04/20/1993<br/>
