@@ -48,4 +48,12 @@ public class UserCutOffDao {
 		return usercutoff;
 	}
 	
+	public List<UserCutOff> findAllUserCutOff(int cutOffID){
+		em.getTransaction().begin();
+		Query query = em.createQuery("select u from UserCutOff u where u.cutoffid = " + cutOffID);
+		List<UserCutOff> usercutoffs = query.getResultList();
+		em.getTransaction().commit();
+		return usercutoffs;
+	}
+	
 }
