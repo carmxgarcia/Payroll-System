@@ -44,31 +44,20 @@
 	</div>
 	<!-- /BreadCrumb -->
 	
-	<% UserCutOff usercutoff = (UserCutOff)request.getAttribute("usercutoff");
+	<% List<UserCutOff> usercutoff = (List<UserCutOff>)request.getAttribute("usercutoff");
 		CutOff cutoff = (CutOff)request.getAttribute("cutoff");
-		User user = (User)request.getAttribute("user");
-			double basicSalary = usercutoff.getBasicsalary();
-			double othertaxable = usercutoff.getOthertaxable();
-			double nontaxable = usercutoff.getNontaxable();
-			float overtime = usercutoff.getOvertime();
-			float tardiness = usercutoff.getTardiness();
-			int absence = usercutoff.getAbsence();
-			int dependents = (int)usercutoff.getNumberofdependents();
-			double totalsalary = usercutoff.getTotalsalary();
-			int sickleave = usercutoff.getSickleave();
-			int vacationleave=usercutoff.getVacationleave();
-			String middlename = user.getMiddleName()==null?"":user.getMiddleName();
-			String fullname = user.getLastName() + ", "+ user.getFirstName() + middlename;
+		List<User> user = (List<User>)request.getAttribute("user");
+			
 			%>
 	
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="panel-title"><h2>Add Cutoff ( <%out.println(cutoff.getStart_date()); %>- <%out.println(cutoff.getEnd_date()); %>)</h2></div>
+				<div class="panel-title"><h2>Update Cutoff ( <%out.println(cutoff.getStart_date()); %>- <%out.println(cutoff.getEnd_date()); %>)</h2></div>
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">
-					<form action="">
+					<form method="post" action="/updatecutoff?id=<%out.println(cutoff.getId());%>">
 					    <table class="table table-striped table-bordered table-condensed table-hover">
 					    	<thead>
 					    		<tr>
@@ -81,34 +70,54 @@
 					    			<th>Other Taxable</th>
 					    			<th>Non Taxable</th>
 					    			<th>No. of Dependents</th>
-					    			<th>SL</th>
-					    			<th>VL</th>
+					    			<th>SL(Days)</th>
+					    			<th>VL(Days)</th>
 					    			<th></th>
 					    			<th></th>
 					    		</tr>
 					    	</thead>
 					    	<tbody>
+					    		<% for(UserCutOff c: usercutoff ){ 
+					    		
+					    			double basicSalary = c.getBasicsalary();
+					    			double othertaxable = c.getOthertaxable();
+					    			double nontaxable = c.getNontaxable();
+					    			float overtime = c.getOvertime();
+					    			float tardiness = c.getTardiness();
+					    			int absence = c.getAbsence();
+					    			int dependents = (int)c.getNumberofdependents();
+					    			double totalsalary = c.getTotalsalary();
+					    			int sickleave = c.getSickleave();
+					    			int vacationleave=c.getVacationleave();
+					    			String middlename = c.getUser().getMiddleName()==null?"":c.getUser().getMiddleName();
+					    			String fullname = c.getUser().getLastName() + ", "+ c.getUser().getFirstName() + middlename;
+					    			
+					    		%>
+					    		
 					    		<tr>
-					    			<td class="td-id"><%out.println(usercutoff.getId());%></td>
+					    			<td class="td-id"><%out.println(c.getId());%></td>
 					    			<td><%=fullname%></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputAbsence" min="0" max="99" value="<%=absence%>"></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputOvertime" min="0" max="99" value="<%=overtime%>"></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputTardiness" min="0" max="99" value="<%=tardiness%>"></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputBasicSalary" value="<%=basicSalary%>"></div></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputOtherTaxable" value="<%=othertaxable%>"></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputNonTaxable" value="<%=nontaxable%>"></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputNumberOfDependents" value="<%=dependents%>"></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputSickLeaves" value="<%=sickleave%>"></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputVacationLeaves" value="<%=vacationleave%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name=<%out.println("inputAbsence"+c.getId());%> min="0" max="99" value="<%=absence%>"></td>
+					    			<td><input type="text" class="form-control input-sm" name=<%out.println("inputOvertime"+c.getId());%> min="0" max="99" value="<%=overtime%>"></td>
+					    			<td><input type="text" class="form-control input-sm" name=<%out.println("inputTardiness"+c.getId());%> min="0" max="99" value="<%=tardiness%>"></td>
+					    			<td><input type="text" class="form-control input-sm" name=<%out.println("inputBasicSalary"+c.getId());%> value="<%=basicSalary%>"></div></td>
+					    			<td><input type="text" class="form-control input-sm" name=<%out.println("inputOtherTaxable"+c.getId());%> value="<%=othertaxable%>"></td>
+					    			<td><input type="text" class="form-control input-sm" name=<%out.println("inputNonTaxable"+c.getId());%> value="<%=nontaxable%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name=<%out.println("inputNumberOfDependents"+c.getId());%> value="<%=dependents%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name=<%out.println("inputSickLeaves"+c.getId());%> value="<%=sickleave%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name=<%out.println("inputVacationLeaves"+c.getId());%> value="<%=vacationleave%>"></td>
 					    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Payslip</button></td>
 					    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
 					    		</tr>
+					    		
+					    		<% } %>
 					    	</tbody>
 					    </table>
+					 <input type="submit" class="btn btn-default btn-primary btn-lg col-md-2 col-md-offset-10" value="Update"/>
 				    </form>
 			    </div>
 			    <hr/>
-			    <input type="submit" class="btn btn-default btn-primary btn-lg col-md-2 col-md-offset-10" value="Update"/>
+			   
 			</div>
 		</div>
 		

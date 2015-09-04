@@ -21,6 +21,7 @@ public class UserCutOffDao {
 
 	public void update(UserCutOff entity) {
 		em.getTransaction().begin();
+		em.merge(entity);
 		em.getTransaction().commit();
 	}
 
@@ -50,7 +51,7 @@ public class UserCutOffDao {
 	
 	public List<UserCutOff> findAllUserCutOff(int cutOffID){
 		em.getTransaction().begin();
-		Query query = em.createQuery("select u from UserCutOff u where u.cutoffid = " + cutOffID);
+		Query query = em.createQuery("select u from UserCutOff u where u.cutOff.id = " + cutOffID);
 		List<UserCutOff> usercutoffs = query.getResultList();
 		em.getTransaction().commit();
 		return usercutoffs;
