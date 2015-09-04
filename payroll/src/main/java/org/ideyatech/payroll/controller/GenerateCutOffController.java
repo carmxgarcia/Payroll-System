@@ -60,15 +60,19 @@ public class GenerateCutOffController extends HttpServlet {
 		List<User> users = userdao.findAll();
 		
 		
-		DateFormat format = new SimpleDateFormat("yyyy-dd-MM", Locale.ENGLISH);
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
 		Date start_date = null,end_date=null;
 		try {
-			start_date = (Date) format.parse(request.getParameter("inputStartDate"));
-			end_date = (Date) format.parse(request.getParameter("inputEndDate"));
+			start_date = format.parse(request.getParameter("inputStartDate"));
+			end_date = format2.parse(request.getParameter("inputEndDate"));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println(request.getParameter("inputEndDate"));
+		System.out.println(end_date);
 		
 		cutoff.setStart_date(start_date);
 		cutoff.setEnd_date(end_date);
