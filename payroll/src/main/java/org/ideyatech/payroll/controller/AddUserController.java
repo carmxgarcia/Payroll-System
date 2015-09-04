@@ -56,7 +56,7 @@ public class AddUserController extends HttpServlet {
 		UserDao userDao = new UserDao();
 		User user = new User();
 		
-		DateFormat format = new SimpleDateFormat("yyyy-dd-MM", Locale.ENGLISH);
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		Date date = null;
 		try {
 			date = (Date) format.parse(request.getParameter("inputBirthDay"));
