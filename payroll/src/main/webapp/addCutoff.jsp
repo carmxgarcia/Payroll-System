@@ -53,7 +53,7 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="panel-title"><h2>Update Cutoff ( <%out.println(cutoff.getStart_date()); %>- <%out.println(cutoff.getEnd_date()); %>)</h2></div>
+				<div class="panel-title"><h2>Update Cutoff ( <%out.println(cutoff.getStart_date()); %>- <%out.println(cutoff.getEnd_date()); %>) - <% out.println(cutoff.getWorkingdays()); %> Working Days</h2></div>
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">
