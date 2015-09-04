@@ -39,7 +39,7 @@
 	<div class="container">
 		<ol class="breadcrumb">
 			<li><a href="/cutoff">Cutoffs</a></li>
-		  	<li class="active">Add Cutoff</li>
+		  	<li class="active">Update Cutoff</li>
 		</ol>
 	</div>
 	<!-- /BreadCrumb -->
