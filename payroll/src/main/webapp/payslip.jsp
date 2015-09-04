@@ -61,7 +61,7 @@
 							<tr>
 								<td>
 									<b>EMPLOYEE NAME</b><br/>
-									<b>EMPLOYEE NUMBER</b>
+									<b>EMPLOYEE NUMBER</b><br/>
 									<b>AGE</b><br/>
 									<b>SEX</b><br/>
 									<b>BIRTHDAY</b><br/>
@@ -71,6 +71,7 @@
 									Barcinal, Valen J.<br/>
 									2015-0001<br/>
 									21<br/>
+									Male<br/>
 									04/20/1993<br/>
 									Single
 								</td>
