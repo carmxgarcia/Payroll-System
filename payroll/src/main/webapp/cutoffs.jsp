@@ -59,11 +59,21 @@
 								<input type="date" class="form-control" name="inputEndDate" id="inputEndDate">
 							</div>
 						</div>
+						
+						<div class="form-group">
+							<div class="form-inline">
+								<label for="inputWorkingDays" class="col-sm-4 control-label">Working Days</label>
+								<input type="number" class="form-control" name="inputWorkingDays" id="inputWorkingDays">
+							</div>
+						</div>
+						
 						<div class="form-group">
 							<div class="col-md-4 col-md-offset-4">
 								<input type="submit" class="btn btn-primary btn-block" value="Generate">
 							</div>
 						</div>
+						
+						
 					</div>
 				</div>
 				</form>
@@ -74,6 +84,8 @@
 			    			<th class="col-id">id</th>
 			    			<th>Start Date</th>
 			    			<th>End Date</th>
+			    			<th>Working Days</th>
+			    			<th colspan="2"></th>
 			    			<th colspan="2"></th>
 			    		</tr>
 			    	</thead>
@@ -87,6 +99,7 @@
 			    			<td class="td-id"><% out.println(c.getId()); %></td>
 			    			<td><% out.println(c.getStart_date()); %></td>
 			    			<td><% out.println(c.getEnd_date()); %></td>
+			    			<td><% out.println(c.getWorkingdays()); %></td>
 			    			<td><a href="/usercutoff?id=<%out.println(c.getId()); %>" class="btn btn-warning btn-xs btn-block">View</button></td>
 			    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
 			    		</tr>

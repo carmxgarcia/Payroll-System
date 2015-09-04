@@ -25,6 +25,9 @@ public class CutOff {
 	@Temporal(TemporalType.DATE)
 	@Column(name="enddate")
 	private Date end_date;
+	
+	@Column(name="workingdays")
+	private int workingdays;
 
 	public int getId() {
 		return id;
@@ -49,6 +52,13 @@ public class CutOff {
 	public void setEnd_date(Date end_date) {
 		this.end_date = end_date;
 	}
-	
+
+	public int getWorkingdays() {
+		return workingdays;
+	}
+
+	public void setWorkingdays(int workingdays) {
+		this.workingdays = workingdays;
+	}
 	
 }

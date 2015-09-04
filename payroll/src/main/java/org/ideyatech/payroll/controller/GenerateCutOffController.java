@@ -72,28 +72,29 @@ public class GenerateCutOffController extends HttpServlet {
 		
 		cutoff.setStart_date(start_date);
 		cutoff.setEnd_date(end_date);
+		cutoff.setWorkingdays(Integer.parseInt(request.getParameter("inputWorkingDays")));
 		cutoffdao.add(cutoff);
 		
 		for(User u: users){
 			UserCutOff usercutoff = new UserCutOff();
 			usercutoff.setCutOff(cutoff);
 			usercutoff.setUser(u);
-			usercutoff.setSss(SSSUtil.getSSSAmount(u.getBasicSalary()));
-			usercutoff.setPhilhealth(PhilhealthUtil.getPhilhealthAmount(u.getBasicSalary()));
-			usercutoff.setPagIbig(PagibigUtil.getPagibigAmount(u.getBasicSalary()));
+			usercutoff.setSss(SSSUtil.getSSSAmount(u.getBasicSalary())/2);
+			usercutoff.setPhilhealth(PhilhealthUtil.getPhilhealthAmount(u.getBasicSalary())/2);
+			usercutoff.setPagIbig(PagibigUtil.getPagibigAmount(u.getBasicSalary())/2);
 			usercutoff.setAbsence(0);
 			usercutoff.setTardiness(0);
 			usercutoff.setOvertime(0);
 			
 			usercutoff.setNumberofdependents(u.getNumberOfDependents());
-			usercutoff.setBasicsalary(u.getBasicSalary());
-			usercutoff.setNontaxable(u.getNonTaxable());
-			usercutoff.setOthertaxable(u.getOtherTaxable());
+			usercutoff.setBasicsalary(u.getBasicSalary()/2);
+			usercutoff.setNontaxable(u.getNonTaxable()/2);
+			usercutoff.setOthertaxable(u.getOtherTaxable()/2);
 			usercutoff.setSickleave(0);
 			usercutoff.setVacationleave(0);
 			
 			Double totalTaxable = usercutoff.getBasicsalary() + usercutoff.getOthertaxable() - usercutoff.getPagIbig() - usercutoff.getPhilhealth() - usercutoff.getSss();
-			usercutoff.setTotalsalary((totalTaxable - (TaxUtil.getTaxAmount(totalTaxable, usercutoff.getNumberofdependents()))) + usercutoff.getNontaxable());
+			usercutoff.setTotalsalary((totalTaxable - (TaxUtil.getTaxAmount(totalTaxable, (int)usercutoff.getNumberofdependents()))) + usercutoff.getNontaxable());
 			usercutoffdao.add(usercutoff);
 		}
 		

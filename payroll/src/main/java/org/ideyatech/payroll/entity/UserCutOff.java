@@ -107,7 +107,7 @@ public class UserCutOff {
 		this.nontaxable = nontaxable;
 	}
 
-	public int getNumberofdependents() {
+	public double getNumberofdependents() {
 		return numberofdependents;
 	}
 

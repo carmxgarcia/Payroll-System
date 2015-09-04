@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2015 at 04:38 AM
+-- Generation Time: Sep 04, 2015 at 08:44 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -30,16 +30,9 @@ CREATE TABLE IF NOT EXISTS `cutoff` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `startdate` date NOT NULL,
   `enddate` date NOT NULL,
+  `workingdays` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `cutoff`
---
-
-INSERT INTO `cutoff` (`id`, `startdate`, `enddate`) VALUES
-(3, '2015-01-09', '2016-03-09'),
-(4, '2016-04-09', '2017-06-09');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -97,17 +90,7 @@ CREATE TABLE IF NOT EXISTS `usercutoff` (
   `sickleave` int(11) NOT NULL,
   `vacationleave` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `usercutoff`
---
-
-INSERT INTO `usercutoff` (`id`, `cutoffid`, `userid`, `absence`, `overtime`, `tardiness`, `sss`, `pagibig`, `philhealth`, `basicsalary`, `othertaxable`, `nontaxable`, `numberofdependents`, `totalsalary`, `sickleave`, `vacationleave`) VALUES
-(3, 3, 2, 0, 0, 0, 0, 0, 0, 20000, 0, 5000, 1, 0, 0, 0),
-(4, 3, 3, 0, 0, 0, 0, 0, 0, 1111, 2222, 444, 0, 0, 0, 0),
-(5, 4, 2, 0, 0, 0, 0, 0, 0, 20000, 0, 5000, 1, 0, 0, 0),
-(6, 4, 3, 0, 0, 0, 0, 0, 0, 1111, 2222, 444, 0, 0, 0, 0);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
