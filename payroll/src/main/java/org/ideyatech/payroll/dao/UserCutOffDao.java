@@ -57,4 +57,12 @@ public class UserCutOffDao {
 		return usercutoffs;
 	}
 	
+	
+	public List<UserCutOff> findAllUserPayslip(int userID){
+		em.getTransaction().begin();
+		Query query = em.createQuery("select u from UserCutOff u where u.user.id = " + userID);
+		List<UserCutOff> usercutoffs = query.getResultList();
+		em.getTransaction().commit();
+		return usercutoffs;
+	}
 }
