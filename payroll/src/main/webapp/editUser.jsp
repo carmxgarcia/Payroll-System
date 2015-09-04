@@ -23,9 +23,9 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Home</a></li>
-					<li class="active"><a href="#">Employees</a></li>
-					<li><a href="#">Cutoffs</a></li>
+					<li><a href="/index.jsp">Home</a></li>
+					<li class="active"><a href="/user">Employees</a></li>
+					<li><a href="/cutoff">Cutoffs</a></li>
 				</ul>
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 	<!-- BreadCrumb -->
 	<div class="container">
 		<ol class="breadcrumb">
-			<li><a href="#">Employees</a></li>
+			<li><a href="/user">Employees</a></li>
 		  	<li class="active">Edit Employee</li>
 		</ol>
 	</div>
