@@ -76,6 +76,8 @@ public class AddUserController extends HttpServlet {
 		user.setNumberOfDependents(Integer.parseInt(request.getParameter("inputDependents")));
 		user.setOtherTaxable(Double.parseDouble(request.getParameter("inputTaxable")));
 		user.setNonTaxable(Double.parseDouble(request.getParameter("inputNonTaxable")));
+		user.setVacationleave(10);
+		user.setSickleave(10);
 		
 		userDao.add(user);
 		

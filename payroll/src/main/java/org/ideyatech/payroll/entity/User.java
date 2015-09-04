@@ -49,6 +49,12 @@ public class User {
 	@Column(name="nontaxable")
 	private double nonTaxable;
 
+	@Column(name="sickleave")
+	private int sickleave;
+	
+	@Column(name="vacationleave")
+	private int vacationleave;
+	
 	public int getId() {
 		return id;
 	}
@@ -143,6 +149,22 @@ public class User {
 
 	public void setNonTaxable(double nonTaxable) {
 		this.nonTaxable = nonTaxable;
+	}
+
+	public int getSickleave() {
+		return sickleave;
+	}
+
+	public void setSickleave(int sickleave) {
+		this.sickleave = sickleave;
+	}
+
+	public int getVacationleave() {
+		return vacationleave;
+	}
+
+	public void setVacationleave(int vacationleave) {
+		this.vacationleave = vacationleave;
 	}
 	
 }

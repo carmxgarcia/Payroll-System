@@ -21,6 +21,10 @@ import org.ideyatech.payroll.dao.UserDao;
 import org.ideyatech.payroll.entity.CutOff;
 import org.ideyatech.payroll.entity.User;
 import org.ideyatech.payroll.entity.UserCutOff;
+import org.ideyatech.payroll.util.PagibigUtil;
+import org.ideyatech.payroll.util.PhilhealthUtil;
+import org.ideyatech.payroll.util.SSSUtil;
+import org.ideyatech.payroll.util.TaxUtil;
 
 @WebServlet("/generate")
 public class GenerateCutOffController extends HttpServlet {
@@ -74,17 +78,22 @@ public class GenerateCutOffController extends HttpServlet {
 			UserCutOff usercutoff = new UserCutOff();
 			usercutoff.setCutOff(cutoff);
 			usercutoff.setUser(u);
-			usercutoff.setSss(0);
-			usercutoff.setPhilhealth(0);
-			usercutoff.setPagIbig(0);
+			usercutoff.setSss(SSSUtil.getSSSAmount(u.getBasicSalary()));
+			usercutoff.setPhilhealth(PhilhealthUtil.getPhilhealthAmount(u.getBasicSalary()));
+			usercutoff.setPagIbig(PagibigUtil.getPagibigAmount(u.getBasicSalary()));
 			usercutoff.setAbsence(0);
 			usercutoff.setTardiness(0);
 			usercutoff.setOvertime(0);
-			usercutoff.setTotalsalary(0);
+			
 			usercutoff.setNumberofdependents(u.getNumberOfDependents());
 			usercutoff.setBasicsalary(u.getBasicSalary());
 			usercutoff.setNontaxable(u.getNonTaxable());
 			usercutoff.setOthertaxable(u.getOtherTaxable());
+			usercutoff.setSickleave(0);
+			usercutoff.setVacationleave(0);
+			
+			Double totalTaxable = usercutoff.getBasicsalary() + usercutoff.getOthertaxable() - usercutoff.getPagIbig() - usercutoff.getPhilhealth() - usercutoff.getSss();
+			usercutoff.setTotalsalary((totalTaxable - (TaxUtil.getTaxAmount(totalTaxable, usercutoff.getNumberofdependents()))) + usercutoff.getNontaxable());
 			usercutoffdao.add(usercutoff);
 		}
 		
