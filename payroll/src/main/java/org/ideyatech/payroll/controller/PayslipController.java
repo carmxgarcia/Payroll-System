@@ -17,6 +17,10 @@ import org.ideyatech.payroll.dao.UserDao;
 import org.ideyatech.payroll.entity.CutOff;
 import org.ideyatech.payroll.entity.User;
 import org.ideyatech.payroll.entity.UserCutOff;
+import org.ideyatech.payroll.util.AbsencesUtil;
+import org.ideyatech.payroll.util.OvertimeUtil;
+import org.ideyatech.payroll.util.TardinessUtil;
+import org.ideyatech.payroll.util.TaxUtil;
 
 /**
  * Servlet implementation class HelloServlet
@@ -44,6 +48,18 @@ public class PayslipController extends HttpServlet {
 		
 		
 		request.setAttribute("userCutOff", userCutOff);
+		Double overtime = OvertimeUtil.getOvertimeAmount(userCutOff.getOvertime(), userCutOff.getBasicsalary(), userCutOff.getCutOff().getWorkingdays());
+		request.setAttribute("overtime", overtime);
+		Double tardiness = TardinessUtil.getTardinessAmount(userCutOff.getTardiness(), userCutOff.getBasicsalary(), userCutOff.getCutOff().getWorkingdays());
+		request.setAttribute("tardiness", tardiness);
+		Double absense = AbsencesUtil.getAbsencesAmount(userCutOff.getAbsence(), userCutOff.getBasicsalary(), userCutOff.getCutOff().getWorkingdays());
+		request.setAttribute("absence", absense);
+		
+		Double totalTaxable = userCutOff.getBasicsalary() + userCutOff.getOthertaxable() - overtime - tardiness - absense - userCutOff.getPagIbig() - userCutOff.getPhilhealth() - userCutOff.getSss();;
+		Double taxWitholding =  TaxUtil.getTaxAmount(totalTaxable, (int)userCutOff.getNumberofdependents());
+		
+		request.setAttribute("tax", taxWitholding);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("payslip.jsp");
 		dispatcher.forward(request, response);
 		

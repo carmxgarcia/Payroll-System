@@ -24,7 +24,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/index.jsp">Home</a></li>
 					<li><a href="/user">Employees</a></li>
-					<li class="active"><a href="/cutoffs">Cutoffs</a></li>
+					<li class="active"><a href="/cutoff">Cutoffs</a></li>
 				</ul>
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 	<div class="container">
 		<ol class="breadcrumb">
 			<li><a href="#">Cutoffs</a></li>
-			<li><a href="#">Update Cutoffs</a></li>
+			<li><a href="/usercutoff?id=${userCutOff.cutOff.id}&message=">Update Cutoffs</a></li>
 		  	<li class="active">Payslip</li>
 		</ol>
 	</div>
@@ -69,11 +69,11 @@
 								</td>
 								<td>
 									${userCutOff.user.firstName} ${userCutOff.user.lastName}<br/>
-									2015-0001<br/>
-									21<br/>
-									Male<br/>
-									04/20/1993<br/>
-									Single
+									2015-${userCutOff.id}<br/>
+									21${userCutOff.user.age}<br/>
+									${userCutOff.user.sex}<br/>
+									${userCutOff.user.dateOfBirth}<br/>
+									${userCutOff.user.maritalStatus }
 								</td>
 								<td>
 									<b>PAY PERIOD</b><br/>
@@ -83,11 +83,11 @@
 									<b>NON TAXABLE INCOME</b>
 								</td>
 								<td>
-									04/20/1993 - 09/04/2015<br/>
-									5<br/>
-									20000.00<br/>
-									0.00<br/>
-									5000.00
+									${userCutOff.cutOff.start_date} - ${userCutOff.cutOff.end_date}<br/>
+									${userCutOff.numberofdependents }<br/>
+									${userCutOff.basicsalary}<br/>
+									${userCutOff.othertaxable}<br/>
+									${userCutOff.nontaxable}
 								</td>
 							</tr>
 						</tbody>
@@ -110,14 +110,14 @@
 								</td>
 								<td>
 									<br/>
-									8 <b>HRS</b>
+									${userCutOff.overtime} <b>HRS</b>
 								</td>
 								<td></td>
 								<td>
-									10000.00<br/>
-									909.09<br/>
-									0.00<br/>
-									2500.00<br/>
+									${userCutOff.basicsalary}<br/>
+									${overtime}<br/>
+									${userCutOff.othertaxable}<br/>
+									${userCutOff.nontaxable}<br/>
 								</td>
 							</tr>
 							<tr class="success">
@@ -125,7 +125,7 @@
 									<b>TOTAL EARNINGS</b>
 								</td>
 								<td><b>PHP</b></td>
-								<td><b>13409.00</b></td>
+								<td><b>${userCutOff.basicsalary + overtime + userCutOff.othertaxable + userCutOff.nontaxable}</b></td>
 							</tr>
 						</tbody>
 					</table>
@@ -151,17 +151,17 @@
 									<br/>
 									<br/>
 									<br/>
-									1 <b>HRS</b><br/>
-									1 <b>DAYS</b>
+									${userCutOff.tardiness} <b>HRS</b><br/>
+									${userCutOff.absence} <b>DAYS</b>
 								</td>
 								<td></td>
 								<td>
-									290.65<br/>
-									125.00<br/>
-									50.00<br/>
-									113.64<br/>
-									909.09<br/>
-									1341.84
+									${userCutOff.sss}<br/>
+									${userCutOff.philhealth}<br/>
+									${userCutOff.pagIbig}<br/>
+									${tardiness}<br/>
+									${absence}<br/>
+									${tax}
 									
 								</td>
 							</tr>
@@ -170,7 +170,7 @@
 									<b>TOTAL DEDUCTIONS</b>
 								</td>
 								<td><b>PHP</b></td>
-								<td><b>2630.22</b></td>
+								<td><b>${userCutOff.sss + userCutOff.philhealth + userCutOff.pagIbig + tardiness + absence +tax}</b></td>
 							</tr>
 							<tr></tr>
 						</tbody>
@@ -183,7 +183,7 @@
 						    	<th><h3>NET PAY</h3></th>
 						    	<th></th>
 						    	<th><h3>PHP</h3></th>
-						    	<th><h3>10578.78</h3></th>
+						    	<th><h3>${userCutOff.totalsalary}</h3></th>
 						    </tr>
 						</thead>
 					</table>
