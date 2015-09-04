@@ -107,7 +107,7 @@
 					    			<td><input type="number" class="form-control input-sm" name=<%out.println("inputSickLeaves"+c.getId());%> value="<%=sickleave%>"></td>
 					    			<td><input type="number" class="form-control input-sm" name=<%out.println("inputVacationLeaves"+c.getId());%> value="<%=vacationleave%>"></td>
 					    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Payslip</button></td>
-					    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
+					    			<td><a href="deleteusercutoff?id=<%=c.getId()%>&cId=<%=cutoff.getId()%>" class="btn btn-danger btn-xs btn-block">Delete</a></td>
 					    		</tr>
 					    		
 					    		<% } %>

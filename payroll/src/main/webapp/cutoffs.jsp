@@ -86,7 +86,6 @@
 			    			<th>End Date</th>
 			    			<th>Working Days</th>
 			    			<th colspan="2"></th>
-			    			<th colspan="2"></th>
 			    		</tr>
 			    	</thead>
 			    	<tbody>
@@ -100,8 +99,8 @@
 			    			<td><% out.println(c.getStart_date()); %></td>
 			    			<td><% out.println(c.getEnd_date()); %></td>
 			    			<td><% out.println(c.getWorkingdays()); %></td>
-			    			<td><a href="/usercutoff?id=<%out.println(c.getId()); %>" class="btn btn-warning btn-xs btn-block">View</button></td>
-			    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
+			    			<td><a href="/usercutoff?id=<%out.println(c.getId()); %>" class="btn btn-warning btn-xs btn-block">View</a></td>
+			    			<td><a href="/deletecutoff?id=<%out.println(c.getId()); %>" class="btn btn-danger btn-xs btn-block">Delete</a></td>
 			    		</tr>
 			    	
 			    	<% } %>
