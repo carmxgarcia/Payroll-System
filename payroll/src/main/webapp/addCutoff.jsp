@@ -103,7 +103,7 @@
 					    		%>
 					    		
 					    		<tr>
-					    			<td class="td-id"><%out.println(c.getId());%></td>
+					    			<td class="td-id"><%out.println(c.getUser().getId());%></td>
 					    			<td><%=fullname%></td>
 					    			<td><input type="number" class="form-control input-sm" name=<%out.println("inputAbsence"+c.getId());%> min="0" max="99" value="<%=absence%>"></td>
 					    			<td><input type="text" class="form-control input-sm" name=<%out.println("inputOvertime"+c.getId());%> min="0" max="99" value="<%=overtime%>"></td>
