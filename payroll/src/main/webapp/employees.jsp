@@ -70,7 +70,7 @@
 							
 							<tr>
 								<td class="td-id"><% out.println(u.getId()); %></td>
-								<td><% out.println(u.getLastName()+", "+u.getFirstName()+" "+u.getMiddleName()); %></td>
+								<td><a href="/allpayslip?id=<%=u.getId()%>"><% out.println(u.getLastName()+", "+u.getFirstName()+" "+u.getMiddleName()); %></td>
 								<td><% out.println(u.getAge()); %></td>
 								<td><% out.println(u.getSex()); %></td>
 								<td><% out.println(u.getDateOfBirth()); %></td>
