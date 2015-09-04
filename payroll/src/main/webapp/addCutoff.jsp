@@ -54,6 +54,14 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="panel-title"><h2>Update Cutoff ( <%out.println(cutoff.getStart_date()); %>- <%out.println(cutoff.getEnd_date()); %>) - <% out.println(cutoff.getWorkingdays()); %> Working Days</h2></div>
+				<br/> <%String message = (String)request.getAttribute("message");
+				if(message.equals("success")) 
+					out.println("Successfully updated all rows.");
+				else if(message.equals("")){}
+				else{ 
+					out.println("Error on user of id: "+message+". Rows following this number are not updated.");
+				}
+				%>
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">

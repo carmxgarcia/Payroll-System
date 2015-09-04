@@ -99,7 +99,7 @@
 			    			<td><% out.println(c.getStart_date()); %></td>
 			    			<td><% out.println(c.getEnd_date()); %></td>
 			    			<td><% out.println(c.getWorkingdays()); %></td>
-			    			<td><a href="/usercutoff?id=<%out.println(c.getId()); %>" class="btn btn-warning btn-xs btn-block">View</a></td>
+			    			<td><a href="/usercutoff?id=<%out.println(c.getId()); %>&message=" class="btn btn-warning btn-xs btn-block">View</a></td>
 			    			<td><a href="/deletecutoff?id=<%out.println(c.getId()); %>" class="btn btn-danger btn-xs btn-block">Delete</a></td>
 			    		</tr>
 			    	

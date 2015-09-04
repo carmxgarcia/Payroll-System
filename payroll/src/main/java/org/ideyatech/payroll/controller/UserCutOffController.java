@@ -46,6 +46,7 @@ public class UserCutOffController extends HttpServlet {
 		List<User> user= userdao.findAll();
 		CutOff cutoff= cutoffdao.findById(Integer.parseInt(request.getParameter("id")));
 		
+		request.setAttribute("message",request.getParameter("message"));
 		request.setAttribute("usercutoff",usercutoff);
 		request.setAttribute("user",user);
 		request.setAttribute("cutoff",cutoff);
