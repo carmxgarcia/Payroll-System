@@ -85,6 +85,8 @@ public class GenerateCutOffController extends HttpServlet {
 			usercutoff.setBasicsalary(u.getBasicSalary());
 			usercutoff.setNontaxable(u.getNonTaxable());
 			usercutoff.setOthertaxable(u.getOtherTaxable());
+			usercutoff.setSickleave(0);
+			usercutoff.setVacationleave(0);
 			usercutoffdao.add(usercutoff);
 		}
 		

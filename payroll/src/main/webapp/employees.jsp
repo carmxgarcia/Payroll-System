@@ -55,6 +55,8 @@
 			    			<th>Basic Salary</th>
 			    			<th>Taxable</th>
 			    			<th>Non-Taxable</th>
+			    			<th>Sick Leave</th>
+			    			<th>Vacation Leave</th>
 			    			<th colspan="2"></th>
 			    		</tr>
 			    	</thead>
@@ -76,6 +78,8 @@
 								<td>Php <% out.println(u.getBasicSalary()); %></td>
 								<td>Php <% out.println(u.getOtherTaxable()); %></td>
 								<td>Php <% out.println(u.getNonTaxable()); %></td>
+								<td><% out.println(u.getSickleave()); %></td>
+								<td><% out.println(u.getVacationleave()); %></td>
 								<td><a href="/editView?id=<%out.println(u.getId());%>" class="btn btn-warning btn-xs btn-block">Edit</a></td>
 			    				<td><a href="/delete?id=<%out.println(u.getId());%>" class="btn btn-danger btn-xs btn-block">Delete</a></td>
 								

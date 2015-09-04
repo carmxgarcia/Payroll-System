@@ -52,11 +52,17 @@ public class UserCutOff {
 	private double nontaxable;
 	
 	@Column(name="numberofdependents")
-	private double numberofdependents;
+	private int numberofdependents;
 	
 	@Column(name="totalsalary")
 	private double totalsalary;
 
+	@Column(name="sickleave")
+	private int sickleave;
+	
+	@Column(name="vacationleave")
+	private int vacationleave;
+	
 	public int getId() {
 		return id;
 	}
@@ -105,7 +111,7 @@ public class UserCutOff {
 		return numberofdependents;
 	}
 
-	public void setNumberofdependents(double numberofdependents) {
+	public void setNumberofdependents(int numberofdependents) {
 		this.numberofdependents = numberofdependents;
 	}
 
@@ -168,6 +174,23 @@ public class UserCutOff {
 	public void setPhilhealth(double philhealth) {
 		this.philhealth = philhealth;
 	}
+
+	public int getSickleave() {
+		return sickleave;
+	}
+
+	public void setSickleave(int sickleave) {
+		this.sickleave = sickleave;
+	}
+
+	public int getVacationleave() {
+		return vacationleave;
+	}
+
+	public void setVacationleave(int vacationleave) {
+		this.vacationleave = vacationleave;
+	}
+	
 	
 	
 }

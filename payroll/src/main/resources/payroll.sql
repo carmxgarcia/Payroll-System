@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2015 at 01:11 PM
+-- Generation Time: Sep 04, 2015 at 04:38 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -60,16 +60,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `basicsalary` double NOT NULL,
   `othertaxable` double NOT NULL,
   `nontaxable` double NOT NULL,
+  `sickleave` int(11) NOT NULL,
+  `vacationleave` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `firstname`, `lastname`, `middlename`, `age`, `sex`, `dateofbirth`, `maritalstatus`, `numberofdependents`, `basicsalary`, `othertaxable`, `nontaxable`) VALUES
-(2, 'Valen', 'Barcinal', '', 22, 'male', '2015-09-01', 'single', 1, 20000, 0, 5000),
-(3, 'Nick', 'Tunac', '', 18, 'Male', '2015-01-09', 'Single', 0, 1111, 2222, 444);
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `middlename`, `age`, `sex`, `dateofbirth`, `maritalstatus`, `numberofdependents`, `basicsalary`, `othertaxable`, `nontaxable`, `sickleave`, `vacationleave`) VALUES
+(2, 'Valen', 'Barcinal', '', 22, 'male', '2015-09-01', 'single', 1, 20000, 0, 5000, 10, 10),
+(3, 'Nick', 'Tunac', '', 18, 'Male', '2015-01-09', 'Single', 0, 1111, 2222, 444, 10, 10);
 
 -- --------------------------------------------------------
 
@@ -92,6 +94,8 @@ CREATE TABLE IF NOT EXISTS `usercutoff` (
   `nontaxable` double NOT NULL,
   `numberofdependents` int(11) NOT NULL,
   `totalsalary` double NOT NULL,
+  `sickleave` int(11) NOT NULL,
+  `vacationleave` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
@@ -99,11 +103,11 @@ CREATE TABLE IF NOT EXISTS `usercutoff` (
 -- Dumping data for table `usercutoff`
 --
 
-INSERT INTO `usercutoff` (`id`, `cutoffid`, `userid`, `absence`, `overtime`, `tardiness`, `sss`, `pagibig`, `philhealth`, `basicsalary`, `othertaxable`, `nontaxable`, `numberofdependents`, `totalsalary`) VALUES
-(3, 3, 2, 0, 0, 0, 0, 0, 0, 20000, 0, 5000, 1, 0),
-(4, 3, 3, 0, 0, 0, 0, 0, 0, 1111, 2222, 444, 0, 0),
-(5, 4, 2, 0, 0, 0, 0, 0, 0, 20000, 0, 5000, 1, 0),
-(6, 4, 3, 0, 0, 0, 0, 0, 0, 1111, 2222, 444, 0, 0);
+INSERT INTO `usercutoff` (`id`, `cutoffid`, `userid`, `absence`, `overtime`, `tardiness`, `sss`, `pagibig`, `philhealth`, `basicsalary`, `othertaxable`, `nontaxable`, `numberofdependents`, `totalsalary`, `sickleave`, `vacationleave`) VALUES
+(3, 3, 2, 0, 0, 0, 0, 0, 0, 20000, 0, 5000, 1, 0, 0, 0),
+(4, 3, 3, 0, 0, 0, 0, 0, 0, 1111, 2222, 444, 0, 0, 0, 0),
+(5, 4, 2, 0, 0, 0, 0, 0, 0, 20000, 0, 5000, 1, 0, 0, 0),
+(6, 4, 3, 0, 0, 0, 0, 0, 0, 1111, 2222, 444, 0, 0, 0, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

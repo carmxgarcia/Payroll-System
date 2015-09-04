@@ -87,7 +87,7 @@
 			    			<td class="td-id"><% out.println(c.getId()); %></td>
 			    			<td><% out.println(c.getStart_date()); %></td>
 			    			<td><% out.println(c.getEnd_date()); %></td>
-			    			<td><button type="button" class="btn btn-warning btn-xs btn-block">View</button></td>
+			    			<td><a href="/usercutoff?id=<%out.println(c.getId()); %>" class="btn btn-warning btn-xs btn-block">View</button></td>
 			    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
 			    		</tr>
 			    	

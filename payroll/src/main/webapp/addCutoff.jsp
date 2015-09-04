@@ -1,3 +1,5 @@
+<%@page import="org.ideyatech.payroll.entity.UserCutOff"%>
+<%@page import="org.ideyatech.payroll.entity.CutOff"%>
 <%@page import="org.ideyatech.payroll.entity.User"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -42,10 +44,27 @@
 	</div>
 	<!-- /BreadCrumb -->
 	
+	<% UserCutOff usercutoff = (UserCutOff)request.getAttribute("usercutoff");
+		CutOff cutoff = (CutOff)request.getAttribute("cutoff");
+		User user = (User)request.getAttribute("user");
+			double basicSalary = usercutoff.getBasicsalary();
+			double othertaxable = usercutoff.getOthertaxable();
+			double nontaxable = usercutoff.getNontaxable();
+			float overtime = usercutoff.getOvertime();
+			float tardiness = usercutoff.getTardiness();
+			int absence = usercutoff.getAbsence();
+			int dependents = (int)usercutoff.getNumberofdependents();
+			double totalsalary = usercutoff.getTotalsalary();
+			int sickleave = usercutoff.getSickleave();
+			int vacationleave=usercutoff.getVacationleave();
+			String middlename = user.getMiddleName()==null?"":user.getMiddleName();
+			String fullname = user.getLastName() + ", "+ user.getFirstName() + middlename;
+			%>
+	
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="panel-title"><h2>Add Cutoff (April 20, 1993 - September 3, 2015)</h2></div>
+				<div class="panel-title"><h2>Add Cutoff ( <%out.println(cutoff.getStart_date()); %>- <%out.println(cutoff.getEnd_date()); %>)</h2></div>
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">
@@ -55,25 +74,33 @@
 					    		<tr>
 					    			<th class="col-id">id</th>
 					    			<th>Name</th>
-					    			<th>Absence</th>
-					    			<th>Overtime</th>
-					    			<th>Tardiness</th>
-					    			<th>Pag-ibig</th>
-					    			<th>Philhealth</th>
-					    			<th>SSS</th>
+					    			<th>Absence<br/>(Days)</th>
+					    			<th>Overtime<br/>(Hrs)</th>
+					    			<th>Tardiness<br/>(Hrs)</th>
+					    			<th>Basic Salary</th>
+					    			<th>Other Taxable</th>
+					    			<th>Non Taxable</th>
+					    			<th>No. of Dependents</th>
+					    			<th>SL</th>
+					    			<th>VL</th>
+					    			<th></th>
 					    			<th></th>
 					    		</tr>
 					    	</thead>
 					    	<tbody>
 					    		<tr>
-					    			<td class="td-id">1</td>
-					    			<td>Barcinal, Valen J.</td>
-					    			<td><input type="number" class="form-control input-sm" name="inputAbsence" min="0" max="99" value="0"></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputOvertime" min="0" max="99" value="0"></td>
-					    			<td><input type="number" class="form-control input-sm" name="inputTardiness" min="0" max="99" value="0"></td>
-					    			<td><input type="text" class="form-control input-sm" name="inputPagibig" value="0"></div></td>
-					    			<td><input type="text" class="form-control input-sm" name="inputPhilhealth" value="0"></td>
-					    			<td><input type="text" class="form-control input-sm" name="inputOvertime" value="0"></td>
+					    			<td class="td-id"><%out.println(usercutoff.getId());%></td>
+					    			<td><%=fullname%></td>
+					    			<td><input type="number" class="form-control input-sm" name="inputAbsence" min="0" max="99" value="<%=absence%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name="inputOvertime" min="0" max="99" value="<%=overtime%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name="inputTardiness" min="0" max="99" value="<%=tardiness%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name="inputBasicSalary" value="<%=basicSalary%>"></div></td>
+					    			<td><input type="number" class="form-control input-sm" name="inputOtherTaxable" value="<%=othertaxable%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name="inputNonTaxable" value="<%=nontaxable%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name="inputNumberOfDependents" value="<%=dependents%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name="inputSickLeaves" value="<%=sickleave%>"></td>
+					    			<td><input type="number" class="form-control input-sm" name="inputVacationLeaves" value="<%=vacationleave%>"></td>
+					    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Payslip</button></td>
 					    			<td><button type="button" class="btn btn-danger btn-xs btn-block">Delete</button></td>
 					    		</tr>
 					    	</tbody>
