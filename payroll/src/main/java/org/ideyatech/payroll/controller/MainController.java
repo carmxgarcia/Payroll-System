@@ -1,55 +1,19 @@
 package org.ideyatech.payroll.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+@Controller
+public class MainController {	
+	
+	@RequestMapping("/")
+    public ModelAndView helloWorld() {
 
-import org.ideyatech.payroll.dao.UserDao;
-import org.ideyatech.payroll.entity.User;
-
-/**
- * Servlet implementation class HelloServlet
- */
-@WebServlet("/MainController")
-public class MainController extends HttpServlet {
-   
-	private static final long serialVersionUID = 6940077307333555537L;
-
-	/**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MainController() {
-        super();
+		ModelAndView model = new ModelAndView("index");
+		return model;
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserDao userDao = new UserDao();
-
-		List<User> users = userDao.findAll();
-		
-		for(User user: users) {
-			System.out.println(user.getFirstName());
-		}
-
-		return;
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
+	
 }
 
