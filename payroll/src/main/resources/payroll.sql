@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2015 at 10:27 AM
+-- Generation Time: Sep 08, 2015 at 10:35 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -52,7 +52,14 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `groups`
+--
+
+INSERT INTO `groups` (`id`, `group_name`) VALUES
+(1, 'java trainees');
 
 -- --------------------------------------------------------
 
@@ -65,6 +72,13 @@ CREATE TABLE IF NOT EXISTS `group_authorities` (
   `group_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `group_authorities`
+--
+
+INSERT INTO `group_authorities` (`authority`, `group_id`) VALUES
+('role_user', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +90,13 @@ CREATE TABLE IF NOT EXISTS `group_members` (
   `group_id` int(11) NOT NULL,
   `group_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `group_members`
+--
+
+INSERT INTO `group_members` (`username`, `group_id`, `group_name`) VALUES
+('carmela', 1, 'java trainees');
 
 -- --------------------------------------------------------
 
@@ -156,7 +177,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `enabled`) VALUES
+(1, 'carmela', 'garcia', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
