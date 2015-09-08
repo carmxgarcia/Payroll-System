@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2015 at 10:35 AM
+-- Generation Time: Sep 08, 2015 at 12:33 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `group_authorities` (
 --
 
 INSERT INTO `group_authorities` (`authority`, `group_id`) VALUES
-('role_user', '1');
+('ROLE_USER', '1');
 
 -- --------------------------------------------------------
 
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `enabled`) VALUES
-(1, 'carmela', 'garcia', 1);
+(1, 'carmela', 'bbb5ff6dc3826b999a5cf0c2e7b2c889', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
