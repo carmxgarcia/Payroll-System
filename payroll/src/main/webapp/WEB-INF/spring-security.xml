@@ -23,6 +23,8 @@
 	  <authentication-provider>
 	    <user-service>
 		<user name="nick" password="tunac" authorities="ROLE_USER" />
+		<user name="carmela" password="garcia" authorities="ROLE_USER" />
+		<user name="valen" password="barcinal" authorities="ROLE_USER" />
 	    </user-service>
 	  </authentication-provider>
 	</authentication-manager>
