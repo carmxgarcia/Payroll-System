@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<context:component-scan base-package="org.ideyatech.payroll.controller" />
+	<context:component-scan base-package="org.ideyatech.*" />
 	<mvc:annotation-driven />
 
 	<bean id="viewResolver"
